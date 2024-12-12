@@ -4,7 +4,7 @@ This section relates to the analysis of the performance decay of the MMR method 
 ## Performing the analysis
 ### Setup
 #### MMR source code
-Unzip the `MMR.zip` in `MMR` folder. This source code was taken from the official implementation accessed on 2024/12/11 from [the official GitHub repository](https://github.com/zhangzilongc/MMR).
+Download and unzip the [`MMR.zip`](https://drive.google.com/file/d/1N4NguN8iYVykRyef6RPRhgdiAyyWVgVm/view?usp=share_link) into the `MMR` folder. This source code was taken from the official implementation accessed on 2024/12/11 from [the official GitHub repository](https://github.com/zhangzilongc/MMR). In case the official repository was updated since, we do not guarantee compatibility of our work with the updated version.
 #### Pre-trained model for MMR
 Download the pre-trained model of MAE (ViT-base) available at [here](https://dl.fbaipublicfiles.com/mae/visualize/mae_visualize_vit_base.pth) or via [MMR's official GitHub repository](https://github.com/zhangzilongc/MMR).
 Store the model in the MMR folder.
@@ -46,10 +46,10 @@ After creation of the virtual environment, one more step is needed for a success
 The `timm` library contains a file incompatible with one other library of the specified version.
 Newer `timm` library versions are, however, incompatible with different libraries. 
 Thus, we need to repair one small bug to make it compatible.
-The module `timm.models.layers.helpers located` in `.../timm/models/layers` needs to be exchanged with the helpers.py file from this repository.
+The module `timm.models.layers.helpers located` in `.../timm/models/layers` needs to be replaced with a modified [helpers.py](helpers.py) file.
 For Linux, the file will, probably, be located at `~/miniconda3/envs/MMR-env/lib/python3.9/site-packages/timm/models/layers`.
 
-#### Data Preparation For MMR Run
+#### Data Preparation and MMR Run Jobs
 Move to the `MMR` folder and run 
 ```
 bash dataPreparation.sh
@@ -66,3 +66,22 @@ and
 ```
 sbatch run2ndHalf.sh
 ```
+these jobs will produce an output file, `AeBAD_MMR_1stHalf.out` and `AeBAD_MMR_2ndHalf.out` respectively.
+
+#### Output Processing and Analysis
+
+Filter the raw output files using 
+```
+python3 parseOutput.py -r AeBAD_MMR_1stHalf.out -w 1stHalf.csv
+```
+and
+```
+python3 parseOutput.py -r AeBAD_MMR_2ndHalf.out -w 2ndHalf.csv
+```
+These csv files can be viewed separately, or they can be combined into one using 
+```
+cat 1stHalf.csv > fullOutput.csv
+tail -n +2 2ndHalf.csv >> fullOutput.csv
+```
+
+We include such [results file](MMR/fullOutput.csv) of our run.
