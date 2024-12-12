@@ -49,7 +49,7 @@ Thus, we need to repair one small bug to make it compatible.
 The module `timm.models.layers.helpers located` in `.../timm/models/layers` needs to be replaced with a modified [helpers.py](helpers.py) file.
 For Linux, the file will, probably, be located at `~/miniconda3/envs/MMR-env/lib/python3.9/site-packages/timm/models/layers`.
 
-#### Data Preparation For MMR Run
+#### Data Preparation and MMR Run Jobs
 Move to the `MMR` folder and run 
 ```
 bash dataPreparation.sh
@@ -65,4 +65,21 @@ sbatch run1stHalf.sh
 and
 ```
 sbatch run2ndHalf.sh
+```
+these jobs will produce an output file, `AeBAD_MMR_1stHalf.out` and `AeBAD_MMR_2ndHalf.out` respectively.
+
+#### Output Processing and Analysis
+
+Filter the raw output files using 
+```
+python3 parseOutput.py -r AeBAD_MMR_1stHalf.out -w 1stHalf.csv
+```
+and
+```
+python3 parseOutput.py -r AeBAD_MMR_2ndHalf.out -w 2ndHalf.csv
+```
+These csv files can be viewed separately, or they can be combined into one using 
+```
+cat 1stHalf.csv > fullOutput.csv
+tail -n +2 2ndHalf.csv >> fullOutput.csv
 ```
