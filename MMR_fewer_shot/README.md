@@ -46,7 +46,7 @@ After creation of the virtual environment, one more step is needed for a success
 The `timm` library contains a file incompatible with one other library of the specified version.
 Newer `timm` library versions are, however, incompatible with different libraries. 
 Thus, we need to repair one small bug to make it compatible.
-The module `timm.models.layers.helpers located` in `.../timm/models/layers` needs to be exchanged with the helpers.py file from this repository.
+The module `timm.models.layers.helpers located` in `.../timm/models/layers` needs to be replaced with a modified [helpers.py](helpers.py) file.
 For Linux, the file will, probably, be located at `~/miniconda3/envs/MMR-env/lib/python3.9/site-packages/timm/models/layers`.
 
 #### Data Preparation For MMR Run
