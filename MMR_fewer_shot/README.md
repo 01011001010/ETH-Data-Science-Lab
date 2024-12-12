@@ -83,3 +83,5 @@ These csv files can be viewed separately, or they can be combined into one using
 cat 1stHalf.csv > fullOutput.csv
 tail -n +2 2ndHalf.csv >> fullOutput.csv
 ```
+
+We include such [results file](MMR/fullOutput.csv) of our run.
