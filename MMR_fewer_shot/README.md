@@ -85,3 +85,7 @@ tail -n +2 2ndHalf.csv >> fullOutput.csv
 ```
 
 We include such [results file](MMR/fullOutput.csv) of our run.
+
+#### Results visualisation
+
+Our findings are visualised in a Jupyter notebook [visualisation.ipynb](MMR/visualisation.ipynb)
