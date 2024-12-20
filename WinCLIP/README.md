@@ -92,18 +92,5 @@ Below is an example configuration for running experiments on the AeBAD dataset:
 ```python
 python main_refactored_aebad.py
 ```
-## Citation
-
-This implementation is used to produce the WinCLIP results in our [CVPR'24 InCTRL paper](https://github.com/mala-lab/InCTRL). If you find the implementation useful, we would appreciate your acknowledgement via citing the InCTRL paper:
-
-```bibtex
-@inproceedings{zhu2024toward,
-  title={Toward Generalist Anomaly Detection via In-context Residual Learning with Few-shot Sample Prompts},
-  author={Zhu, Jiawen and Pang, Guansong},
-  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
-  year={2024}
-}
-```
-
-## Acknowledgement
-This refactored implementation builds upon the work of MALA Lab's unofficial WinCLIP implementation. We express our gratitude for their foundational work.
+## Acknowledgements
+This refactored implementation builds upon the work of MALA Lab's unofficial WinCLIP implementation. We express our gratitude for their foundational work. Additionally, we acknowledge the authors of the [WinCLIP CVPR'23 paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Jeong_WinCLIP_Zero-Few-Shot_Anomaly_Classification_and_Segmentation_CVPR_2023_paper.pdf) and the [InCTRL CVPR'24 paper](https://github.com/mala-lab/InCTRL), which inspired this implementation.
