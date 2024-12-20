@@ -1,0 +1,36 @@
+[visa]
+datasetname = "visa"
+dataset_root_dir = "/home/bearda/PycharmProjects/winclipbad/WinCLIP/visa_anomaly_detection"
+data_dir = "/home/bearda/PycharmProjects/winclipbad/WinCLIP/visa_anomaly_detection/visa"
+model_cfg_path = "./open_clip/model_configs/ViT-B-16-plus-240.json"
+checkpoint_path = "./vit_b_16_plus_240-laion400m_e31-8fb26589.pt"
+shot = 4
+obj_types = ["candle", "capsules", "cashew", "chewinggum", "fryum", "macaroni1", "macaroni2", "pcb1", "pcb2", "pcb3", "pcb4", "pipe_fryum"]
+
+[aebad]
+datasetname = "aebad"
+dataset_root_dir = "/home/bearda/PycharmProjects/winclipbad/WinCLIP/AeBAD"
+data_dir = "/home/bearda/PycharmProjects/winclipbad/WinCLIP/AeBAD"
+model_cfg_path = "./open_clip/model_configs/ViT-B-16-plus-240.json"
+checkpoint_path = "./vit_b_16_plus_240-laion400m_e31-8fb26589.pt"
+shot = 1
+obj_types = [
+    "background", "illumination", "view", "same"
+]
+
+[template_level]
+templates = [
+    "a cropped photo of the {}.",
+    "a close-up photo of the {}.",
+    "a bright photo of the {}.",
+    "a dark photo of the {}.",
+    "a photo of the {}.",
+    "a photo of a small {}.",
+    "a photo of a large {}.",
+    "a photo of a {} for visual inspection.",
+    "a photo of the {} for anomaly detection."
+]
+
+[state_level]
+normal = ["{}", "flawless {}", "perfect {}", "unblemished {}", "{} without flaw", "{} without defect", "{} without damage"]
+anomaly = ["damaged {}", "{} with flaw", "{} with defect", "{} with damage"]
